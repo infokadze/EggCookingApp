@@ -20,6 +20,32 @@ extension UIColor {
     }
 }
 
+extension SecondVC {
+     func defaultBoiledMethod() {
+        
+        softBoiledImageButton.setImage(UIImage.init(named: "softActive"), for: .normal)
+        mediumBoiledImageButton.setImage(UIImage(named: "mediumDefault"), for: .normal)
+        hardBoiledImageButton.setImage(UIImage(named: "hardDefault"), for: .normal)
+        
+        eggSizeSButton.layer.borderColor = UIColor.makeOrangeColor().cgColor
+        eggSizeSButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
+        
+        eggSizeLButton.layer.borderColor = UIColor.makeGreyColor().cgColor
+        eggSizeLButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
+        
+        eggSizeMButton.layer.borderColor = UIColor.makeGreyColor().cgColor
+        eggSizeMButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
+        
+        fridgeTempButton.layer.borderColor = UIColor.makeOrangeColor().cgColor
+        fridgeTempButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
+
+        roomTempButton.layer.borderColor = UIColor.makeGreyColor().cgColor
+        roomTempButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
+        
+        minTimeLabel.text = "7:00 minutes"
+    }
+}
+
 //MARK: - SecondVC constraints
 
 extension SecondVC {
