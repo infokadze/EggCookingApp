@@ -16,7 +16,6 @@ extension UIColor {
 //MARK: - FirstVC constraints
 
 extension FirstVC {
-    
     func setConstraints() {
         
         view.addSubview(eggyLabel)

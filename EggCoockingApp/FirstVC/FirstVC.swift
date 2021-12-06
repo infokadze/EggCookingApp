@@ -78,6 +78,7 @@ final class FirstVC: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true)
+//        show(vc, sender: startButtonTapped)
     }
 }
     

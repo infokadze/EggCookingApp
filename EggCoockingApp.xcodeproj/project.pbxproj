@@ -49,10 +49,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D13023A275E20510093D82C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		2D13023B275E205D0093D82C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		32613606275CEA5100D73D54 /* SecondVC */ = {
 			isa = PBXGroup;
 			children = (
 				32613607275CEA5100D73D54 /* SecondVC.swift */,
+				2D13023B275E205D0093D82C /* Views */,
+				2D13023A275E20510093D82C /* Buttons */,
 			);
 			path = SecondVC;
 			sourceTree = "<group>";
