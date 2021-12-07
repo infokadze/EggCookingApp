@@ -10,12 +10,12 @@ import UIKit
 extension Int {
     
     func timeString(time: TimeInterval) -> String {
-            let minute = Int(time) / 60 % 60
-            let second = Int(time) % 60
-
-            // return formated string
-            return String(format: "%02i:%02i", minute, second)
-        }
+        let minute = Int(time) / 60 % 60
+        let second = Int(time) % 60
+        
+        // return formated string
+        return String(format: "%02i:%02i", minute, second)
+    }
     //    timeString(time: TimeInterval(i))
 }
 
@@ -27,14 +27,14 @@ extension UIColor {
         return color
     }
     
-   static func makeOrangeColor() -> UIColor {
-       let color = UIColor.rgbColor(red: 219, green: 148, blue: 112, alpha: 1)
+    static func makeOrangeColor() -> UIColor {
+        let color = UIColor.rgbColor(red: 219, green: 148, blue: 112, alpha: 1)
         return color
     }
 }
 
 extension SecondVC {
-     func defaultBoiledMethod() {
+    func defaultBoiledMethod() {
         
         softBoiledImageButton.setImage(UIImage.init(named: "softActive"), for: .normal)
         mediumBoiledImageButton.setImage(UIImage(named: "mediumDefault"), for: .normal)
@@ -51,56 +51,16 @@ extension SecondVC {
         
         fridgeTempButton.layer.borderColor = UIColor.makeOrangeColor().cgColor
         fridgeTempButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
-
+        
         roomTempButton.layer.borderColor = UIColor.makeGreyColor().cgColor
         roomTempButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
         
-         
-         updateTime()
+        updateTime()
     }
-
-    
-    func getTimeData(buttonString: (String)) -> Int {
-
-        var time = 0
-    
-        let boilingTimes: Dictionary<String, Int> = {
-            var dict = [String: Int]()
-            dict = ["fridgeTemperature" : 2, "roomTmperature": 3, "eggSizeS": 1, "eggSizeM": 2, "eggSizeL": 3, "softBoiled": 5, "mediumBoiled": 6, "hardBoiled": 7]
-            return dict
-        }()
-
-//        guard case let boilingTimes.keys.contains(buttonString) else { return }
-                
-        for  (_, value) in boilingTimes {
-            switch value {
-            case boilingTimes["fridgeTemperature"]:
-                return 3
-            case boilingTimes["roomTmperature"]:
-                return 2
-            case boilingTimes["eggSizeS"]:
-                return 1
-            case boilingTimes["eggSizeM"]:
-                return 2
-            case boilingTimes["eggSizeL"]:
-                return 3
-            case boilingTimes["softBoiled"]:
-                return 5
-            case boilingTimes["mediumBoiled"]:
-                return 6
-            case boilingTimes["harBoiledBoiled"]:
-                return 7
-            default:
-                break
-
-            }
-            time = value
-        }
-        return time
-    }
-    
-    
 }
+
+
+
 
 
 //MARK: - SecondVC constraints
@@ -131,7 +91,6 @@ extension SecondVC {
         ])
         
         view.addSubview(eggImageView)
-        
         eggImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
         eggImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         eggImageView.heightAnchor.constraint(equalToConstant: 195).isActive = true
@@ -144,7 +103,7 @@ extension SecondVC {
             cookingModesView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             cookingModesView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             cookingModesView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-    
+            
         ])
         
         cookingModesView.addSubview(eggTemperatureLabel)
@@ -166,12 +125,12 @@ extension SecondVC {
         eggBoiledTypeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23).isActive = true
         eggBoiledTypeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 510).isActive = true
         
-//
+        //
         cookingModesView.addSubview(fridgeTempButton)
         fridgeTempButton.topAnchor.constraint(equalTo: eggTemperatureLabel.bottomAnchor, constant: 14).isActive = true
         fridgeTempButton.leadingAnchor.constraint(equalTo: cookingModesView.leadingAnchor, constant: 23).isActive = true
         fridgeTempButton.widthAnchor.constraint(equalToConstant: 180).isActive = true
-//        fridgeTempButton.trailingAnchor.constraint(equalTo: roomTempButton.leadingAnchor, constant: 8).isActive = true
+        //        fridgeTempButton.trailingAnchor.constraint(equalTo: roomTempButton.leadingAnchor, constant: 8).isActive = true
         fridgeTempButton.heightAnchor.constraint(equalToConstant: 59).isActive = true
         
         cookingModesView.addSubview(roomTempButton)
@@ -207,10 +166,8 @@ extension SecondVC {
         eggSizeLButton.leadingAnchor.constraint(equalTo: cookingModesView.leadingAnchor, constant: 284).isActive = true
         eggSizeLButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 409).isActive = true
         
-        
-        
         cookingModesView.addSubview(eggBoiledTypeLabel)
-//        eggBoiledTypeLabel.widthAnchor.constraint(equalToConstant: 142).isActive = true
+        //        eggBoiledTypeLabel.widthAnchor.constraint(equalToConstant: 142).isActive = true
         eggBoiledTypeLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         eggBoiledTypeLabel.leadingAnchor.constraint(equalTo: cookingModesView.leadingAnchor, constant: 23).isActive = true
         eggBoiledTypeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 510).isActive = true
@@ -226,7 +183,7 @@ extension SecondVC {
         mediumBoiledImageButton.heightAnchor.constraint(equalToConstant: 174).isActive = true
         mediumBoiledImageButton.leadingAnchor.constraint(equalTo: cookingModesView.leadingAnchor, constant: 153).isActive = true
         mediumBoiledImageButton.topAnchor.constraint(equalTo: eggBoiledTypeLabel.bottomAnchor, constant: 20).isActive = true
-
+        
         cookingModesView.addSubview(hardBoiledImageButton)
         hardBoiledImageButton.widthAnchor.constraint(equalToConstant: 107).isActive = true
         hardBoiledImageButton.heightAnchor.constraint(equalToConstant: 174).isActive = true
@@ -251,7 +208,7 @@ extension SecondVC {
         nextVCButton.heightAnchor.constraint(equalToConstant: 58).isActive = true
         nextVCButton.leadingAnchor.constraint(equalTo: cookingModesView.leadingAnchor, constant: 321).isActive = true
         nextVCButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 761).isActive = true
-
+        
     }
 }
 

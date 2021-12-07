@@ -54,9 +54,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
-extension UIWindowSceneDelegate {
+extension UIResponder {
      func setBackgroundColor () -> UIColor {
         let viewBackgroundColor = UIColor.rgbColor(red: 252, green: 237, blue: 226, alpha: 1)
         return viewBackgroundColor
     }
+    
 }

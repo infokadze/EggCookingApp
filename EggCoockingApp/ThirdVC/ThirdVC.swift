@@ -14,7 +14,6 @@ class ThirdVC: UIViewController {
     let fromSecondVCLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "!!!!!"
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textRect(forBounds: CGRect(x: 0, y: 0, width: 159, height: 24), limitedToNumberOfLines: 1)
         label.textAlignment = .center
@@ -90,7 +89,7 @@ class ThirdVC: UIViewController {
     let additionalTimeBoldTextLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "!!!!"
+        label.text = ""
         label.font = UIFont(name: "SF Compact Rounded Bold", size: 18)
         label.textAlignment = .center
         return label
@@ -128,20 +127,30 @@ class ThirdVC: UIViewController {
         return button
     }()
     
-    var timeSeconds: Int?
+    var timeSeconds: Int = 0
     var boiledType: Int?
     
-//    func updateLabel() {
-//        switch boiledType {
-//        case 1:
-//            fromSecondVCLabel.text = "Soft"
-//        }
-//    }
+    func updateLabels() {
+        switch boiledType {
+        case 1:
+            fromSecondVCLabel.text = "Soft boiled"
+        case 2:
+            fromSecondVCLabel.text = "Medium boiled"
+        case 3:
+            fromSecondVCLabel.text = "Hard boiled"
+        default:
+            print("default")
+        }
+        
+        let cookingTime = timeSeconds.timeString(time: TimeInterval(timeSeconds))
+        additionalTimeBoldTextLabel.text = cookingTime
+        
+}
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setConstraints()
-//        updateLabel()
+        updateLabels()
 //        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     

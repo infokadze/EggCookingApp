@@ -10,9 +10,9 @@ import UIKit
 class SecondVC: UIViewController {
     
     
-    //MARK: - SettingsWheel + 2 labels view
+    //MARK: - settingsButton + 2 labels
     let settingsVCButton: UIButton = {
-        let button = UIButton(frame: .zero)
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "settingsWheel"), for: .normal)
         button.addTarget(self, action: #selector(goToSettingsVC), for: .primaryActionTriggered)
@@ -20,7 +20,10 @@ class SecondVC: UIViewController {
     }()
     
     @objc private func goToSettingsVC() {
-        
+        let vc = SettingsVC()
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
     }
     
     
@@ -98,8 +101,6 @@ class SecondVC: UIViewController {
         button.layer.cornerRadius = 7
         button.tag = 1
         button.setTitle("Fridge temperature", for: .normal)
-        button.setTitleColor(UIColor.makeGreyColor(), for: .normal)
-        button.layer.borderColor = UIColor.makeGreyColor().cgColor
         button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 15)
         button.layer.borderWidth = 1.76
         button.addTarget(self, action: #selector(roomOrFridgeButtonTapped), for: .primaryActionTriggered)
@@ -112,8 +113,6 @@ class SecondVC: UIViewController {
         button.layer.cornerRadius = 7
         button.tag = 2
         button.setTitle("Room temperature", for: .normal)
-        button.setTitleColor(UIColor.makeGreyColor(), for: .normal)
-        button.layer.borderColor = UIColor.makeGreyColor().cgColor
         button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 15)
         button.layer.borderWidth = 1.76
         button.addTarget(self, action: #selector(roomOrFridgeButtonTapped), for: .primaryActionTriggered)
@@ -138,12 +137,14 @@ class SecondVC: UIViewController {
             roomTempButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
 
             fridgeTempButton.layer.borderColor = UIColor.makeGreyColor().cgColor
-            roomTempButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
+            fridgeTempButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
+            
             eggTemp = sender.tag
             
         default:
             print("default")
         }
+        
         updateTime()
     }
     
@@ -154,8 +155,6 @@ class SecondVC: UIViewController {
         button.layer.cornerRadius = 7
         button.tag = 1
         button.setTitle("S", for: .normal)
-        button.setTitleColor(UIColor.makeGreyColor(), for: .normal)
-        button.layer.borderColor = UIColor.makeGreyColor().cgColor
         button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 20)
         button.layer.borderWidth = 1.76
         button.addTarget(self, action: #selector(eggSizeButtonTapped), for: .primaryActionTriggered)
@@ -168,8 +167,6 @@ class SecondVC: UIViewController {
         button.layer.cornerRadius = 7
         button.tag = 2
         button.setTitle("M", for: .normal)
-        button.setTitleColor(UIColor.makeGreyColor(), for: .normal)
-        button.layer.borderColor = UIColor.makeGreyColor().cgColor
         button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 20)
         button.layer.borderWidth = 1.76
         button.addTarget(self, action: #selector(eggSizeButtonTapped), for: .primaryActionTriggered)
@@ -183,8 +180,6 @@ class SecondVC: UIViewController {
         button.layer.cornerRadius = 7
         button.tag = 3
         button.setTitle("L", for: .normal)
-        button.setTitleColor(UIColor.makeGreyColor(), for: .normal)
-        button.layer.borderColor = UIColor.makeGreyColor().cgColor
         button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 20)
         button.layer.borderWidth = 1.76
         button.addTarget(self, action: #selector(eggSizeButtonTapped), for: .primaryActionTriggered)
@@ -355,7 +350,7 @@ class SecondVC: UIViewController {
         case 1:
             seconds -= 30
         case 2:
-            seconds == seconds
+            seconds = seconds + 0
         case 3:
             seconds += 30
         default:
@@ -364,14 +359,15 @@ class SecondVC: UIViewController {
         
         switch eggTemp {
         case 1:
-            seconds == seconds
+            seconds = seconds + 0
         case 2:
             seconds += 120
         default:
             print("default")
         }
         
-        minTimeLabel.text = "\(seconds.timeString(time: TimeInterval(seconds))) min"        
+        let cookingTime = "\(seconds.timeString(time: TimeInterval(seconds))) min"
+        minTimeLabel.text = cookingTime
     }
     
     override func viewDidLoad() {

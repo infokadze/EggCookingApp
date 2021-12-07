@@ -87,9 +87,9 @@ extension ThirdVC {
             startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             startButton.heightAnchor.constraint(equalToConstant: 58)
-        
+            
         ])
-
+        
     }
 }
 
