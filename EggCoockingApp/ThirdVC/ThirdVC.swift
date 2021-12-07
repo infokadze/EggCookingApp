@@ -131,17 +131,17 @@ class ThirdVC: UIViewController {
     var timeSeconds: Int?
     var boiledType: Int?
     
-    func updateLabel() {
-        switch boiledType {
-        case 1:
-            fromSecondVCLabel.text = "Soft"
-        }
-    }
+//    func updateLabel() {
+//        switch boiledType {
+//        case 1:
+//            fromSecondVCLabel.text = "Soft"
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setConstraints()
-        updateLabel()
+//        updateLabel()
 //        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     

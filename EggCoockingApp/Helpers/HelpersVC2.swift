@@ -7,20 +7,18 @@
 
 import UIKit
 
-extension UIButton {
-    private func actionHandler(action:(() -> Void)? = nil) {
-        struct __ { static var action :(() -> Void)? }
-        if action != nil { __.action = action }
-        else { __.action?() }
-    }
-    @objc private func triggerActionHandler() {
-        self.actionHandler()
-    }
-    func actionHandler(controlEvents control :UIControl.Event, ForAction action:@escaping () -> Void) {
-        self.actionHandler(action: action)
-        self.addTarget(self, action: #selector(triggerActionHandler), for: control)
-    }
+extension Int {
+    
+    func timeString(time: TimeInterval) -> String {
+            let minute = Int(time) / 60 % 60
+            let second = Int(time) % 60
+
+            // return formated string
+            return String(format: "%02i:%02i", minute, second)
+        }
+    //    timeString(time: TimeInterval(i))
 }
+
 
 extension UIColor {
     
@@ -57,7 +55,8 @@ extension SecondVC {
         roomTempButton.layer.borderColor = UIColor.makeGreyColor().cgColor
         roomTempButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
         
-        minTimeLabel.text = "7:00 minutes"
+         
+         updateTime()
     }
 
     

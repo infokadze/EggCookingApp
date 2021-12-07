@@ -121,20 +121,18 @@ class SecondVC: UIViewController {
     }()
     
     var eggTemp = 1
-    
     @objc func roomOrFridgeButtonTapped(_ sender: UIButton) {
         
         switch sender.tag {
         case 1:
             fridgeTempButton.layer.borderColor = UIColor.makeOrangeColor().cgColor
             fridgeTempButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
-            
-//            getTimeData()
-
+        
             roomTempButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             roomTempButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
             
             eggTemp = sender.tag
+            
         case 2:
             roomTempButton.layer.borderColor = UIColor.makeOrangeColor().cgColor
             roomTempButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
@@ -142,6 +140,7 @@ class SecondVC: UIViewController {
             fridgeTempButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             roomTempButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
             eggTemp = sender.tag
+            
         default:
             print("default")
         }
@@ -193,7 +192,6 @@ class SecondVC: UIViewController {
     }()
     
     var eggSize = 1
-    
     @objc func eggSizeButtonTapped(_ sender: UIButton) {
         
         switch sender.tag {
@@ -208,6 +206,7 @@ class SecondVC: UIViewController {
             eggSizeMButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
             
             eggSize = sender.tag
+            
         case 2:
             eggSizeSButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             eggSizeSButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
@@ -219,6 +218,7 @@ class SecondVC: UIViewController {
             eggSizeMButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
             
             eggSize = sender.tag
+            
         case 3:
             eggSizeSButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             eggSizeSButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
@@ -230,6 +230,7 @@ class SecondVC: UIViewController {
             eggSizeMButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
             
             eggSize = sender.tag
+            
         default:
             print("default")
     
@@ -256,22 +257,16 @@ class SecondVC: UIViewController {
         button.setImage(UIImage.init(named: "mediumDefault"), for: .normal)
         button.adjustsImageWhenHighlighted = false
         button.addTarget(self, action: #selector(boiledImageButtonTapped(_:)), for: .primaryActionTriggered)
-        
         return button
     }()
     
     let hardBoiledImageButton: UIButton = {
         let button = UIButton()
-        button.actionHandler(controlEvents: .touchUpInside, ForAction: { () -> Void in
-//        getTimeData(buttonString: "hardDefault")
-        })
-        
         button.tag = 3
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage.init(named: "hardDefault"), for: .normal)
         button.adjustsImageWhenHighlighted = false
         button.addTarget(self, action: #selector(boiledImageButtonTapped(_:)), for: .primaryActionTriggered)
-        
         return button
     }()
     
@@ -298,6 +293,7 @@ class SecondVC: UIViewController {
         default:
             print("default")
         }
+        
         updateTime()
     }
         
@@ -319,13 +315,6 @@ class SecondVC: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         let interval: Int?
         label.textAlignment = .center
-        
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.minute, .second]
-        formatter.unitsStyle = .full
-
-//        let formattedString = formatter.string(from: TimeInterval(interval))
-        
         return label
     }()
     
@@ -340,7 +329,6 @@ class SecondVC: UIViewController {
     }()
     
     @objc func goToVC3Screen() {
-
         let vc = ThirdVC()
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
@@ -350,7 +338,6 @@ class SecondVC: UIViewController {
     }
     
     var seconds = 0
-    
     func updateTime() {
         
         switch boiledType {
@@ -384,10 +371,8 @@ class SecondVC: UIViewController {
             print("default")
         }
         
-        minTimeLabel.text = "\(seconds) min"
-        
+        minTimeLabel.text = "\(seconds.timeString(time: TimeInterval(seconds))) min"        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
