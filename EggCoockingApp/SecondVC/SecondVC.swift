@@ -9,7 +9,7 @@ import UIKit
 
 class SecondVC: UIViewController {
     
-
+    
     //MARK: - SettingsWheel + 2 labels view
     let settingsVCButton: UIButton = {
         let button = UIButton(frame: .zero)
@@ -28,7 +28,7 @@ class SecondVC: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Set boiled details"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont(name: "SF Compact Rounded Bold", size: 20)
         label.textRect(forBounds: CGRect(x: 0, y: 0, width: 159, height: 24), limitedToNumberOfLines: 1)
         label.textAlignment = .center
         return label
@@ -38,7 +38,7 @@ class SecondVC: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Prepare eggs you like"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        label.font = UIFont(name: "SF Compact Display Regular", size: 18)
         label.textAlignment = .center
         return label
     }()
@@ -67,7 +67,7 @@ class SecondVC: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Egg temperature"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont(name: "SF Compact Rounded Bold", size: 20)
         label.textAlignment = .center
         return label
     }()
@@ -76,7 +76,7 @@ class SecondVC: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Egg size"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont(name: "SF Compact Rounded Bold", size: 20)
         label.textAlignment = .center
         return label
     }()
@@ -85,7 +85,7 @@ class SecondVC: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Egg boiled type"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont(name: "SF Compact Rounded Bold", size: 20)
         label.textAlignment = .center
         return label
     }()
@@ -99,7 +99,6 @@ class SecondVC: UIViewController {
         button.tag = 1
         button.setTitle("Fridge temperature", for: .normal)
         button.setTitleColor(UIColor.makeGreyColor(), for: .normal)
-        //        button.titleLabel?.sizeToFit()
         button.layer.borderColor = UIColor.makeGreyColor().cgColor
         button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 15)
         button.layer.borderWidth = 1.76
@@ -121,25 +120,32 @@ class SecondVC: UIViewController {
         return button
     }()
     
+    var eggTemp = 1
+    
     @objc func roomOrFridgeButtonTapped(_ sender: UIButton) {
         
         switch sender.tag {
         case 1:
             fridgeTempButton.layer.borderColor = UIColor.makeOrangeColor().cgColor
             fridgeTempButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
+            
+//            getTimeData()
 
             roomTempButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             roomTempButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
-//            boiledType = sender.tag
+            
+            eggTemp = sender.tag
         case 2:
             roomTempButton.layer.borderColor = UIColor.makeOrangeColor().cgColor
             roomTempButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
 
             fridgeTempButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             roomTempButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
+            eggTemp = sender.tag
         default:
             print("default")
         }
+        updateTime()
     }
     
     //MARK: - Egg Size Buttons
@@ -151,7 +157,7 @@ class SecondVC: UIViewController {
         button.setTitle("S", for: .normal)
         button.setTitleColor(UIColor.makeGreyColor(), for: .normal)
         button.layer.borderColor = UIColor.makeGreyColor().cgColor
-        button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 15)
+        button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 20)
         button.layer.borderWidth = 1.76
         button.addTarget(self, action: #selector(eggSizeButtonTapped), for: .primaryActionTriggered)
         return button
@@ -165,7 +171,7 @@ class SecondVC: UIViewController {
         button.setTitle("M", for: .normal)
         button.setTitleColor(UIColor.makeGreyColor(), for: .normal)
         button.layer.borderColor = UIColor.makeGreyColor().cgColor
-        button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 15)
+        button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 20)
         button.layer.borderWidth = 1.76
         button.addTarget(self, action: #selector(eggSizeButtonTapped), for: .primaryActionTriggered)
         return button
@@ -180,11 +186,13 @@ class SecondVC: UIViewController {
         button.setTitle("L", for: .normal)
         button.setTitleColor(UIColor.makeGreyColor(), for: .normal)
         button.layer.borderColor = UIColor.makeGreyColor().cgColor
-        button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 15)
+        button.titleLabel?.font = UIFont.init(name: "SF Compact Display Regular", size: 20)
         button.layer.borderWidth = 1.76
         button.addTarget(self, action: #selector(eggSizeButtonTapped), for: .primaryActionTriggered)
         return button
     }()
+    
+    var eggSize = 1
     
     @objc func eggSizeButtonTapped(_ sender: UIButton) {
         
@@ -198,7 +206,8 @@ class SecondVC: UIViewController {
             
             eggSizeMButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             eggSizeMButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
-//            boiledType = sender.tag
+            
+            eggSize = sender.tag
         case 2:
             eggSizeSButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             eggSizeSButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
@@ -208,6 +217,8 @@ class SecondVC: UIViewController {
             
             eggSizeMButton.layer.borderColor = UIColor.makeOrangeColor().cgColor
             eggSizeMButton.setTitleColor(UIColor.makeOrangeColor(), for: .normal)
+            
+            eggSize = sender.tag
         case 3:
             eggSizeSButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             eggSizeSButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
@@ -217,10 +228,13 @@ class SecondVC: UIViewController {
             
             eggSizeMButton.layer.borderColor = UIColor.makeGreyColor().cgColor
             eggSizeMButton.setTitleColor(UIColor.makeGreyColor(), for: .normal)
+            
+            eggSize = sender.tag
         default:
             print("default")
     
         }
+        updateTime()
     }
     
     //MARK: - Boiled Eggs Buttons
@@ -248,6 +262,10 @@ class SecondVC: UIViewController {
     
     let hardBoiledImageButton: UIButton = {
         let button = UIButton()
+        button.actionHandler(controlEvents: .touchUpInside, ForAction: { () -> Void in
+//        getTimeData(buttonString: "hardDefault")
+        })
+        
         button.tag = 3
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage.init(named: "hardDefault"), for: .normal)
@@ -257,6 +275,8 @@ class SecondVC: UIViewController {
         return button
     }()
     
+    var boiledType = 1
+    
     @objc func boiledImageButtonTapped (_ sender: UIButton) {
         
         switch sender.tag {
@@ -264,18 +284,21 @@ class SecondVC: UIViewController {
             softBoiledImageButton.setImage(UIImage.init(named: "softActive"), for: .normal)
             mediumBoiledImageButton.setImage(UIImage(named: "mediumDefault"), for: .normal)
             hardBoiledImageButton.setImage(UIImage(named: "hardDefault"), for: .normal)
-//            boiledType = sender.tag
+            boiledType = sender.tag
         case 2:
             softBoiledImageButton.setImage(UIImage.init(named: "softDefault"), for: .normal)
             mediumBoiledImageButton.setImage(UIImage(named: "mediumActive"), for: .normal)
             hardBoiledImageButton.setImage(UIImage(named: "hardDefault"), for: .normal)
+            boiledType = sender.tag
         case 3:
             softBoiledImageButton.setImage(UIImage.init(named: "softDefault"), for: .normal)
             mediumBoiledImageButton.setImage(UIImage(named: "mediumDefault"), for: .normal)
             hardBoiledImageButton.setImage(UIImage(named: "hardActive"), for: .normal)
+            boiledType = sender.tag
         default:
             print("default")
         }
+        updateTime()
     }
         
         //MARK: - updateTime()
@@ -285,15 +308,24 @@ class SecondVC: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Estimated egg time"
+        label.font = UIFont(name: "SF Compact Display Regular", size: 18)
         label.textAlignment = .center
         return label
     }()
     
     let minTimeLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "SF Compact Rounded Bold", size: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "8.30 min"
+        let interval: Int?
         label.textAlignment = .center
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.unitsStyle = .full
+
+//        let formattedString = formatter.string(from: TimeInterval(interval))
+        
         return label
     }()
     
@@ -303,8 +335,58 @@ class SecondVC: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage.init(named: "nextVCButton"), for: .normal)
         button.adjustsImageWhenHighlighted = false
+        button.addTarget(self, action: #selector(goToVC3Screen), for: .touchUpInside)
         return button
     }()
+    
+    @objc func goToVC3Screen() {
+
+        let vc = ThirdVC()
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.timeSeconds = seconds
+        vc.boiledType = boiledType
+        present(vc, animated: true)
+    }
+    
+    var seconds = 0
+    
+    func updateTime() {
+        
+        switch boiledType {
+        case 1:
+            seconds = 360
+        case 2:
+            seconds = 480
+        case 3:
+            seconds = 600
+        default:
+            print("default")
+        }
+        
+        switch eggSize {
+        case 1:
+            seconds -= 30
+        case 2:
+            seconds == seconds
+        case 3:
+            seconds += 30
+        default:
+            print("default")
+        }
+        
+        switch eggTemp {
+        case 1:
+            seconds == seconds
+        case 2:
+            seconds += 120
+        default:
+            print("default")
+        }
+        
+        minTimeLabel.text = "\(seconds) min"
+        
+    }
     
     
     override func viewDidLoad() {

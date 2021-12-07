@@ -7,6 +7,21 @@
 
 import UIKit
 
+extension UIButton {
+    private func actionHandler(action:(() -> Void)? = nil) {
+        struct __ { static var action :(() -> Void)? }
+        if action != nil { __.action = action }
+        else { __.action?() }
+    }
+    @objc private func triggerActionHandler() {
+        self.actionHandler()
+    }
+    func actionHandler(controlEvents control :UIControl.Event, ForAction action:@escaping () -> Void) {
+        self.actionHandler(action: action)
+        self.addTarget(self, action: #selector(triggerActionHandler), for: control)
+    }
+}
+
 extension UIColor {
     
     static func makeGreyColor() -> UIColor {
@@ -44,7 +59,50 @@ extension SecondVC {
         
         minTimeLabel.text = "7:00 minutes"
     }
+
+    
+    func getTimeData(buttonString: (String)) -> Int {
+
+        var time = 0
+    
+        let boilingTimes: Dictionary<String, Int> = {
+            var dict = [String: Int]()
+            dict = ["fridgeTemperature" : 2, "roomTmperature": 3, "eggSizeS": 1, "eggSizeM": 2, "eggSizeL": 3, "softBoiled": 5, "mediumBoiled": 6, "hardBoiled": 7]
+            return dict
+        }()
+
+//        guard case let boilingTimes.keys.contains(buttonString) else { return }
+                
+        for  (_, value) in boilingTimes {
+            switch value {
+            case boilingTimes["fridgeTemperature"]:
+                return 3
+            case boilingTimes["roomTmperature"]:
+                return 2
+            case boilingTimes["eggSizeS"]:
+                return 1
+            case boilingTimes["eggSizeM"]:
+                return 2
+            case boilingTimes["eggSizeL"]:
+                return 3
+            case boilingTimes["softBoiled"]:
+                return 5
+            case boilingTimes["mediumBoiled"]:
+                return 6
+            case boilingTimes["harBoiledBoiled"]:
+                return 7
+            default:
+                break
+
+            }
+            time = value
+        }
+        return time
+    }
+    
+    
 }
+
 
 //MARK: - SecondVC constraints
 
@@ -195,57 +253,6 @@ extension SecondVC {
         nextVCButton.leadingAnchor.constraint(equalTo: cookingModesView.leadingAnchor, constant: 321).isActive = true
         nextVCButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 761).isActive = true
 
-        
-        
     }
 }
 
-//extension SecondVC {
-    
-//    func eggImageShadows() -> Void {
-//        
-//        let view = UIImageView()
-//        view.frame = CGRect(x: 0, y: 0, width: 150, height: 195)
-//        view.backgroundColor = .white
-//
-//        let shadows = UIImageView()
-//        shadows.frame = view.frame
-//        shadows.clipsToBounds = false
-//        view.addSubview(shadows)
-//
-//        let shadowPath0 = UIBezierPath(roundedRect: shadows.bounds, cornerRadius: 0)
-//        let layer0 = CALayer()
-//        layer0.shadowPath = shadowPath0.cgPath
-//        layer0.shadowColor = UIColor(red: 0.78, green: 0.553, blue: 0.325, alpha: 0.59).cgColor
-//        layer0.shadowOpacity = 1
-//        layer0.shadowRadius = 9
-//        layer0.shadowOffset = CGSize(width: 0, height: 5)
-//        layer0.bounds = shadows.bounds
-//        layer0.position = shadows.center
-//        shadows.layer.addSublayer(layer0)
-//
-//        let shapes = UIImageView()
-//        shapes.frame = view.frame
-//        shapes.clipsToBounds = true
-//        view.addSubview(shapes)
-//
-//        let image1 = UIImage(named: "eggHalf")?.cgImage
-//        let layer1 = CALayer()
-//        layer1.contents = image1
-//        layer1.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0))
-//        layer1.bounds = shapes.bounds
-//        layer1.position = shapes.center
-//        shapes.layer.addSublayer(layer1)
-//        
-//        let parent = self.view!
-//        parent.addSubview(view)
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.widthAnchor.constraint(equalToConstant: 150).isActive = true
-//        view.heightAnchor.constraint(equalToConstant: 195).isActive = true
-//        view.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 316).isActive = true
-//        view.topAnchor.constraint(equalTo: parent.topAnchor, constant: 44).isActive = true
-//        
-//
-//    }
-//    
-//}
