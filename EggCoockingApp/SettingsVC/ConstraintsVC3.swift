@@ -20,7 +20,6 @@ extension SettingsVC {
         backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 37).isActive = true
         backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         
-        
         view.addSubview(notificationsLabel)
         notificationsLabel.widthAnchor.constraint(equalToConstant: 113.01).isActive = true
         notificationsLabel.heightAnchor.constraint(equalToConstant: 23).isActive = true
@@ -32,8 +31,6 @@ extension SettingsVC {
         notificationButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         notificationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         notificationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21).isActive = true
-//        notificationButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 190).isActive = true
-        
         
         notificationButton.addSubview(switchLabelForNotification)
         switchLabelForNotification.widthAnchor.constraint(equalToConstant: 51).isActive = true
@@ -56,13 +53,10 @@ extension SettingsVC {
         switchLabelSound.bottomAnchor.constraint(equalTo: soundCellButton.bottomAnchor, constant: -11.5).isActive = true
         switchLabelSound.topAnchor.constraint(equalTo: soundCellButton.topAnchor,constant: 12.5).isActive = true
         
-        
-        
         view.addSubview(privacyTitleLabel)
         privacyTitleLabel.heightAnchor.constraint(equalToConstant: 23).isActive = true
         privacyTitleLabel.topAnchor.constraint(equalTo: soundCellButton.bottomAnchor, constant: 9).isActive = true
         privacyTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21).isActive = true
-        
         
         view.addSubview(privacyAndTermsView)
         privacyAndTermsView.topAnchor.constraint(equalTo: privacyTitleLabel.bottomAnchor, constant: 5).isActive = true
@@ -89,14 +83,20 @@ extension SettingsVC {
         termsCellButton.trailingAnchor.constraint(equalTo: privacyAndTermsView.trailingAnchor).isActive = true
         termsCellButton.leadingAnchor.constraint(equalTo: privacyAndTermsView.leadingAnchor).isActive = true
         
+        view.addSubview(rateCellButton)
+        rateCellButton.topAnchor.constraint(equalTo: privacyAndTermsView.bottomAnchor, constant: 10).isActive = true
+        rateCellButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        rateCellButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        rateCellButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21).isActive = true
+        
+        view.addSubview(shareCellButton)
+        shareCellButton.topAnchor.constraint(equalTo: rateCellButton.bottomAnchor, constant: 10).isActive = true
+        shareCellButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        shareCellButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        shareCellButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21).isActive = true
+        shareCellButton.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor).isActive =  true
+        
     }
 }
 
-extension UISwitch {
-    func offTintColor(color: UIColor ) {
-        let minSide = min(bounds.size.height, bounds.size.width)
-        layer.cornerRadius = minSide / 2
-        backgroundColor = color
-        tintColor = color
-    }
-}
+

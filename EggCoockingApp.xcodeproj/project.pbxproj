@@ -11,10 +11,11 @@
 		2D130242275F5CAA0093D82C /* HelpersVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130241275F5CAA0093D82C /* HelpersVC3.swift */; };
 		2D130245275F90060093D82C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130244275F90060093D82C /* SettingsVC.swift */; };
 		2D130249275FB1D10093D82C /* HelpersSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130248275FB1D00093D82C /* HelpersSettingsVC.swift */; };
-		2D13024B2760D6890093D82C /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13024A2760D6890093D82C /* NotificationsTableViewCell.swift */; };
 		2D13024E2760D7680093D82C /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13024D2760D7680093D82C /* TimerVC.swift */; };
 		2D1302502760D7B60093D82C /* SetingsVC(update).swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13024F2760D7B60093D82C /* SetingsVC(update).swift */; };
 		2D1302522760DDFF0093D82C /* ConstraintsVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1302512760DDFF0093D82C /* ConstraintsVC3.swift */; };
+		2D130255276102470093D82C /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130254276102470093D82C /* PrivacyPolicyVC.swift */; };
+		2D130258276112430093D82C /* TermsOfUseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130257276112430093D82C /* TermsOfUseVC.swift */; };
 		3261360B275CEA5100D73D54 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32613607275CEA5100D73D54 /* SecondVC.swift */; };
 		3261360C275CEA5100D73D54 /* HelpersVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32613608275CEA5100D73D54 /* HelpersVC1.swift */; };
 		3261360D275CEA5100D73D54 /* HelpersVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32613609275CEA5100D73D54 /* HelpersVC2.swift */; };
@@ -34,10 +35,11 @@
 		2D130241275F5CAA0093D82C /* HelpersVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersVC3.swift; sourceTree = "<group>"; };
 		2D130244275F90060093D82C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		2D130248275FB1D00093D82C /* HelpersSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersSettingsVC.swift; sourceTree = "<group>"; };
-		2D13024A2760D6890093D82C /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
 		2D13024D2760D7680093D82C /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
 		2D13024F2760D7B60093D82C /* SetingsVC(update).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetingsVC(update).swift"; sourceTree = "<group>"; };
 		2D1302512760DDFF0093D82C /* ConstraintsVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsVC3.swift; sourceTree = "<group>"; };
+		2D130254276102470093D82C /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
+		2D130257276112430093D82C /* TermsOfUseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseVC.swift; sourceTree = "<group>"; };
 		32613607275CEA5100D73D54 /* SecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		32613608275CEA5100D73D54 /* HelpersVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpersVC1.swift; sourceTree = "<group>"; };
 		32613609275CEA5100D73D54 /* HelpersVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpersVC2.swift; sourceTree = "<group>"; };
@@ -79,7 +81,6 @@
 				2D130244275F90060093D82C /* SettingsVC.swift */,
 				2D13024F2760D7B60093D82C /* SetingsVC(update).swift */,
 				2D1302512760DDFF0093D82C /* ConstraintsVC3.swift */,
-				2D13024A2760D6890093D82C /* NotificationsTableViewCell.swift */,
 			);
 			path = SettingsVC;
 			sourceTree = "<group>";
@@ -90,6 +91,22 @@
 				2D13024D2760D7680093D82C /* TimerVC.swift */,
 			);
 			path = TimerScreen;
+			sourceTree = "<group>";
+		};
+		2D130253276102270093D82C /* PrivacyPolicyVC */ = {
+			isa = PBXGroup;
+			children = (
+				2D130254276102470093D82C /* PrivacyPolicyVC.swift */,
+			);
+			path = PrivacyPolicyVC;
+			sourceTree = "<group>";
+		};
+		2D1302562761122A0093D82C /* TermsOfUseVC */ = {
+			isa = PBXGroup;
+			children = (
+				2D130257276112430093D82C /* TermsOfUseVC.swift */,
+			);
+			path = TermsOfUseVC;
 			sourceTree = "<group>";
 		};
 		32613606275CEA5100D73D54 /* SecondVC */ = {
@@ -138,6 +155,8 @@
 		32F70AD7275CE63D00E8302E /* EggCoockingApp */ = {
 			isa = PBXGroup;
 			children = (
+				2D1302562761122A0093D82C /* TermsOfUseVC */,
+				2D130253276102270093D82C /* PrivacyPolicyVC */,
 				2D13024C2760D74A0093D82C /* TimerScreen */,
 				32613610275CEAF700D73D54 /* FirstVC */,
 				32613606275CEA5100D73D54 /* SecondVC */,
@@ -244,7 +263,7 @@
 				3261360D275CEA5100D73D54 /* HelpersVC2.swift in Sources */,
 				2D130242275F5CAA0093D82C /* HelpersVC3.swift in Sources */,
 				2D130249275FB1D10093D82C /* HelpersSettingsVC.swift in Sources */,
-				2D13024B2760D6890093D82C /* NotificationsTableViewCell.swift in Sources */,
+				2D130255276102470093D82C /* PrivacyPolicyVC.swift in Sources */,
 				3261360E275CEA5100D73D54 /* FirstVC.swift in Sources */,
 				2D1302522760DDFF0093D82C /* ConstraintsVC3.swift in Sources */,
 				2D130240275F5C280093D82C /* ThirdVC.swift in Sources */,
@@ -253,6 +272,7 @@
 				32F70ADB275CE63D00E8302E /* SceneDelegate.swift in Sources */,
 				2D13024E2760D7680093D82C /* TimerVC.swift in Sources */,
 				2D130245275F90060093D82C /* SettingsVC.swift in Sources */,
+				2D130258276112430093D82C /* TermsOfUseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

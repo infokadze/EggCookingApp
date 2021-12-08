@@ -22,8 +22,16 @@ class SettingsVC : UIViewController {
         let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.setImage(UIImage(named: "backButton"), for: .normal)
+        backButton.addTarget(self, action: #selector(backToVC2), for: .touchUpInside)
         return backButton
     }()
+    
+    @objc func backToVC2() {
+        let vc = SecondVC()
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
+    }
     
     let notificationsLabel: UILabel = {
         let label = UILabel()
@@ -41,12 +49,16 @@ class SettingsVC : UIViewController {
         cellView.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         cellView.layer.cornerRadius = 15
         cellView.layer.backgroundColor = UIColor.rgbColor(red: 219, green: 150, blue: 112, alpha: 1).cgColor
+        cellView.addTarget(self, action: #selector(changeNotificationMode), for: .touchUpInside)
         return cellView
     }()
     
+    @objc func changeNotificationMode() {
+        
+    }
+    
     let switchLabelForNotification: UISwitch = {
         let onOff = UISwitch()
-        onOff.layer.zPosition = 20
         onOff.offTintColor(color: .systemGray)
         onOff.isOn = true
         onOff.translatesAutoresizingMaskIntoConstraints = false
@@ -54,8 +66,12 @@ class SettingsVC : UIViewController {
         return onOff
     }()
     
-    @objc func handleNotificationSwitch() {
-        
+    @objc func handleNotificationSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            
+        } else {
+            
+        }
     }
     
     let soundCellButton: UIButton = {
@@ -78,8 +94,12 @@ class SettingsVC : UIViewController {
         return onOff
     }()
     
-    @objc func handleSoundSwitch() {
-        
+    @objc func handleSoundSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            
+        } else {
+            
+        }
     }
     
     
@@ -105,9 +125,18 @@ class SettingsVC : UIViewController {
         cellView.setTitle("Privacy Policy", for: .normal)
         cellView.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         cellView.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-//        cellView.layer.backgroundColor = UIColor.rgbColor(red: 219, green: 150, blue: 112, alpha: 1).cgColor
+        cellView.tintColor = UIColor.rgbColor(red: 203, green: 203, blue: 203, alpha: 1)
+        cellView.addRightImage(image: UIImage(systemName: "chevron.forward") ?? .checkmark, offset: 20)
+        cellView.addTarget(self, action: #selector(goToPolicyVC), for: .touchUpInside)
         return cellView
     }()
+    
+    @objc func goToPolicyVC() {
+        let vc = PrivacyPolicyVC()
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
+    }
     
     let spacerView: UIView = {
         let view = UIView()
@@ -122,33 +151,66 @@ class SettingsVC : UIViewController {
         cellView.setTitle("Terms of Use", for: .normal)
         cellView.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         cellView.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-//        cellView.layer.backgroundColor = UIColor.rgbColor(red: 219, green: 150, blue: 112, alpha: 1).cgColor
+        cellView.tintColor = UIColor.rgbColor(red: 203, green: 203, blue: 203, alpha: 1)
+        cellView.addRightImage(image: UIImage(systemName: "chevron.forward") ?? .checkmark, offset: 20)
+        
+        cellView.addTarget(self, action: #selector(goToTermOfUseVC), for: .touchUpInside)
         return cellView
     }()
+    
+    @objc func goToTermOfUseVC() {
+    let vc = TermsOfUseVC()
+    vc.modalPresentationStyle = .fullScreen
+    vc.modalTransitionStyle = .crossDissolve
+    present(vc, animated: true, completion: nil)
+    }
     
     let rateCellButton: UIButton = {
         let cellView = UIButton()
         cellView.translatesAutoresizingMaskIntoConstraints = false
-        cellView.titleLabel?.text = "Rate Us ⭐️"
+        cellView.setTitle("Rate Us ⭐️", for: .normal)
+        cellView.layer.cornerRadius = 15
+        cellView.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
+        cellView.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         cellView.layer.backgroundColor = UIColor.rgbColor(red: 219, green: 150, blue: 112, alpha: 1).cgColor
+        cellView.addRightImage(image: UIImage(systemName: "chevron.forward") ?? .checkmark, offset: 20)
+        cellView.tintColor = UIColor.rgbColor(red: 203, green: 203, blue: 203, alpha: 1)
         return cellView
     }()
+   
     
     let shareCellButton: UIButton = {
         let cellView = UIButton()
         cellView.translatesAutoresizingMaskIntoConstraints = false
-        cellView.titleLabel?.text = "Rate Us ⭐️"
+        cellView.setTitle("Share App", for: .normal)
+        cellView.layer.cornerRadius = 15
+        cellView.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.center
         cellView.layer.backgroundColor = UIColor.rgbColor(red: 219, green: 150, blue: 112, alpha: 1).cgColor
         return cellView
     }()
-    
-    
-    
-    
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         setConstraints()
     }
+    
 }
+    extension UISwitch {
+        func offTintColor(color: UIColor ) {
+            let minSide = min(bounds.size.height, bounds.size.width)
+            layer.cornerRadius = minSide / 2
+            backgroundColor = color
+            tintColor = color
+        }
+    }
+        
+        extension UIButton {
+            func addRightImage(image: UIImage, offset: CGFloat) {
+                self.setImage(image, for: .normal)
+                self.imageView?.translatesAutoresizingMaskIntoConstraints = false
+                self.imageView?.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0.0).isActive = true
+                self.imageView?.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -offset).isActive = true
+            }
+        }
+    
+
