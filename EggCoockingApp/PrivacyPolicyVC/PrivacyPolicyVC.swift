@@ -34,6 +34,7 @@ class PrivacyPolicyVC : UIViewController {
     
     let textView: UITextView = {
         let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isEditable = false
         textView.font = UIFont(name: "SF Compact Display Regular", size: 14)
         textView.backgroundColor = UIColor.rgbColor(red: 252, green: 237, blue: 226, alpha: 1)
@@ -52,7 +53,6 @@ Our Privacy Commitment
 
 LeadsDoIt does not collect nor process any Personal Data that is not provided by our users specifically, voluntarily and consciously. We guarantee that our staff complies with the strictest standards of safety and confidentiality and that processing of said Personal Data is carried out with total respect of international legislations.
 """
-        textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
     

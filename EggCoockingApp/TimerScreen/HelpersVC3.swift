@@ -7,14 +7,12 @@
 
 import UIKit
 
-extension ThirdVC {
+extension TimerVC {
     
     func setConstraints() {
         
         view.addSubview(fromSecondVCLabel)
-        fromSecondVCLabel.widthAnchor.constraint(equalToConstant: 147).isActive = true
-        fromSecondVCLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        fromSecondVCLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 132).isActive = true
+        fromSecondVCLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         fromSecondVCLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
         
         view.addSubview(backButton)
@@ -24,18 +22,31 @@ extension ThirdVC {
         backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 67).isActive = true
         
         
-        view.addSubview(timerView)
-        timerView.widthAnchor.constraint(equalToConstant: 295).isActive = true
-        timerView.heightAnchor.constraint(equalToConstant: 295).isActive = true
-        timerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 59).isActive = true
-        timerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 151).isActive = true
+        view.addSubview(timerRect)
+        timerRect.topAnchor.constraint(equalTo: fromSecondVCLabel.bottomAnchor, constant: 63).isActive = true
+        timerRect.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+        timerRect.addSubview(timerView)
+        timerView.leadingAnchor.constraint(equalTo: timerRect.leadingAnchor).isActive = true
+        timerView.trailingAnchor.constraint(equalTo: timerRect.trailingAnchor).isActive = true
+        timerView.topAnchor.constraint(equalTo: timerRect.topAnchor).isActive = true
+        timerView.bottomAnchor.constraint(equalTo: timerRect.bottomAnchor).isActive = true
+        
+        timerView.addSubview(centerTimerLabel)
+        centerTimerLabel.centerXAnchor.constraint(equalTo: timerView.centerXAnchor).isActive = true
+        centerTimerLabel.bottomAnchor.constraint(equalTo: timerView.bottomAnchor, constant: -127).isActive = true
+        
+        timerView.addSubview(eggView)
+        eggView.centerXAnchor.constraint(equalTo: timerView.centerXAnchor).isActive = true
+        eggView.topAnchor.constraint(equalTo: centerTimerLabel.bottomAnchor, constant: 13).isActive = true
+//        eggView.bottomAnchor.constraint(equalTo: timerRect.bottomAnchor, constant: 8).isActive = true
         
         
         view.addSubview(clockIconLabel)
         clockIconLabel.widthAnchor.constraint(equalToConstant: 76).isActive = true
         clockIconLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
         clockIconLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 85).isActive = true
-        clockIconLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 494).isActive = true
+        clockIconLabel.topAnchor.constraint(equalTo: timerRect.bottomAnchor, constant: 34).isActive = true
         
         view.addSubview(temperatureIconLabel)
         temperatureIconLabel.widthAnchor.constraint(equalToConstant: 126).isActive = true

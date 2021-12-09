@@ -9,7 +9,6 @@ import UIKit
 
 class SettingsVC : UIViewController {
     
-    
     let settingsTitleLabel: UILabel = {
     let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +40,7 @@ class SettingsVC : UIViewController {
         return label
     }()
     
+    var isNotificationActive: Bool = true
     let notificationButton: UIButton = {
         let cellView = UIButton()
         cellView.translatesAutoresizingMaskIntoConstraints = false
@@ -54,9 +54,14 @@ class SettingsVC : UIViewController {
     }()
     
     @objc func changeNotificationMode() {
-        
+        if switchLabelForNotification.isOn && isNotificationActive {
+            switchLabelForNotification.setOn(false, animated: true)
+        } else {
+            switchLabelForNotification.setOn(true, animated: true)
+            isNotificationActive = false
+        }
     }
-    
+
     let switchLabelForNotification: UISwitch = {
         let onOff = UISwitch()
         onOff.offTintColor(color: .systemGray)
@@ -68,9 +73,9 @@ class SettingsVC : UIViewController {
     
     @objc func handleNotificationSwitch(_ sender: UISwitch) {
         if sender.isOn {
-            
+            UIApplication.shared.registerForRemoteNotifications()
         } else {
-            
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["notificationID"])
         }
     }
     
@@ -82,8 +87,20 @@ class SettingsVC : UIViewController {
         cellView.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         cellView.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         cellView.layer.backgroundColor = UIColor.rgbColor(red: 219, green: 150, blue: 112, alpha: 1).cgColor
+        cellView.addTarget(self, action: #selector(changeSoundMode), for: .touchUpInside)
         return cellView
     }()
+    
+    var isSoundNotificationActive: Bool = true
+    @objc func changeSoundMode() {
+        if switchLabelSound.isOn && isSoundNotificationActive {
+            switchLabelSound.setOn(false, animated: true)
+            isSoundNotificationActive = false
+        } else {
+            switchLabelSound.setOn(true, animated: true)
+            isSoundNotificationActive = true
+        }
+    }
     
     let switchLabelSound: UISwitch = {
         let onOff = UISwitch()
@@ -98,10 +115,8 @@ class SettingsVC : UIViewController {
         if sender.isOn {
             
         } else {
-            
         }
     }
-    
     
     let privacyTitleLabel: UILabel = {
     let label = UILabel()

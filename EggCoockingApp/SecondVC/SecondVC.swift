@@ -324,7 +324,7 @@ class SecondVC: UIViewController {
     }()
     
     @objc func goToVC3Screen() {
-        let vc = ThirdVC()
+        let vc = TimerVC()
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.timeSeconds = seconds

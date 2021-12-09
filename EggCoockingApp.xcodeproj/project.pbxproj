@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		2D130240275F5C280093D82C /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13023F275F5C280093D82C /* ThirdVC.swift */; };
 		2D130242275F5CAA0093D82C /* HelpersVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130241275F5CAA0093D82C /* HelpersVC3.swift */; };
-		2D130245275F90060093D82C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130244275F90060093D82C /* SettingsVC.swift */; };
+		2D130245275F90060093D82C /* SettingsVC(outdate).swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130244275F90060093D82C /* SettingsVC(outdate).swift */; };
 		2D130249275FB1D10093D82C /* HelpersSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130248275FB1D00093D82C /* HelpersSettingsVC.swift */; };
-		2D13024E2760D7680093D82C /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13024D2760D7680093D82C /* TimerVC.swift */; };
 		2D1302502760D7B60093D82C /* SetingsVC(update).swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13024F2760D7B60093D82C /* SetingsVC(update).swift */; };
 		2D1302522760DDFF0093D82C /* ConstraintsVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1302512760DDFF0093D82C /* ConstraintsVC3.swift */; };
 		2D130255276102470093D82C /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130254276102470093D82C /* PrivacyPolicyVC.swift */; };
 		2D130258276112430093D82C /* TermsOfUseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D130257276112430093D82C /* TermsOfUseVC.swift */; };
+		2DA050B82761FDC800A401AC /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA050B72761FDC800A401AC /* NotificationsVC.swift */; };
 		3261360B275CEA5100D73D54 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32613607275CEA5100D73D54 /* SecondVC.swift */; };
 		3261360C275CEA5100D73D54 /* HelpersVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32613608275CEA5100D73D54 /* HelpersVC1.swift */; };
 		3261360D275CEA5100D73D54 /* HelpersVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32613609275CEA5100D73D54 /* HelpersVC2.swift */; };
@@ -33,13 +33,13 @@
 /* Begin PBXFileReference section */
 		2D13023F275F5C280093D82C /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
 		2D130241275F5CAA0093D82C /* HelpersVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersVC3.swift; sourceTree = "<group>"; };
-		2D130244275F90060093D82C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		2D130244275F90060093D82C /* SettingsVC(outdate).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC(outdate).swift"; sourceTree = "<group>"; };
 		2D130248275FB1D00093D82C /* HelpersSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersSettingsVC.swift; sourceTree = "<group>"; };
-		2D13024D2760D7680093D82C /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
 		2D13024F2760D7B60093D82C /* SetingsVC(update).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetingsVC(update).swift"; sourceTree = "<group>"; };
 		2D1302512760DDFF0093D82C /* ConstraintsVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsVC3.swift; sourceTree = "<group>"; };
 		2D130254276102470093D82C /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
 		2D130257276112430093D82C /* TermsOfUseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseVC.swift; sourceTree = "<group>"; };
+		2DA050B72761FDC800A401AC /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
 		32613607275CEA5100D73D54 /* SecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		32613608275CEA5100D73D54 /* HelpersVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpersVC1.swift; sourceTree = "<group>"; };
 		32613609275CEA5100D73D54 /* HelpersVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpersVC2.swift; sourceTree = "<group>"; };
@@ -67,18 +67,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D13023E275F5C110093D82C /* ThirdVC */ = {
-			isa = PBXGroup;
-			children = (
-				2D13023F275F5C280093D82C /* ThirdVC.swift */,
-			);
-			path = ThirdVC;
-			sourceTree = "<group>";
-		};
 		2D130243275F5F3E0093D82C /* SettingsVC */ = {
 			isa = PBXGroup;
 			children = (
-				2D130244275F90060093D82C /* SettingsVC.swift */,
 				2D13024F2760D7B60093D82C /* SetingsVC(update).swift */,
 				2D1302512760DDFF0093D82C /* ConstraintsVC3.swift */,
 			);
@@ -88,7 +79,8 @@
 		2D13024C2760D74A0093D82C /* TimerScreen */ = {
 			isa = PBXGroup;
 			children = (
-				2D13024D2760D7680093D82C /* TimerVC.swift */,
+				2D13023F275F5C280093D82C /* ThirdVC.swift */,
+				2D130241275F5CAA0093D82C /* HelpersVC3.swift */,
 			);
 			path = TimerScreen;
 			sourceTree = "<group>";
@@ -113,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				32613607275CEA5100D73D54 /* SecondVC.swift */,
+				32613609275CEA5100D73D54 /* HelpersVC2.swift */,
 			);
 			path = SecondVC;
 			sourceTree = "<group>";
@@ -120,10 +113,6 @@
 		3261360F275CEADC00D73D54 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				32613608275CEA5100D73D54 /* HelpersVC1.swift */,
-				32613609275CEA5100D73D54 /* HelpersVC2.swift */,
-				2D130241275F5CAA0093D82C /* HelpersVC3.swift */,
-				2D130248275FB1D00093D82C /* HelpersSettingsVC.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -132,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3261360A275CEA5100D73D54 /* FirstVC.swift */,
+				32613608275CEA5100D73D54 /* HelpersVC1.swift */,
 			);
 			path = FirstVC;
 			sourceTree = "<group>";
@@ -155,12 +145,12 @@
 		32F70AD7275CE63D00E8302E /* EggCoockingApp */ = {
 			isa = PBXGroup;
 			children = (
+				2DA050B72761FDC800A401AC /* NotificationsVC.swift */,
 				2D1302562761122A0093D82C /* TermsOfUseVC */,
 				2D130253276102270093D82C /* PrivacyPolicyVC */,
 				2D13024C2760D74A0093D82C /* TimerScreen */,
 				32613610275CEAF700D73D54 /* FirstVC */,
 				32613606275CEA5100D73D54 /* SecondVC */,
-				2D13023E275F5C110093D82C /* ThirdVC */,
 				2D130243275F5F3E0093D82C /* SettingsVC */,
 				3261360F275CEADC00D73D54 /* Helpers */,
 				32F70AE1275CE63E00E8302E /* Assets.xcassets */,
@@ -173,6 +163,8 @@
 		32F70B05275CE6F500E8302E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D130248275FB1D00093D82C /* HelpersSettingsVC.swift */,
+				2D130244275F90060093D82C /* SettingsVC(outdate).swift */,
 				32F70AD8275CE63D00E8302E /* AppDelegate.swift */,
 				32F70ADA275CE63D00E8302E /* SceneDelegate.swift */,
 				32F70ADE275CE63D00E8302E /* Main.storyboard */,
@@ -261,6 +253,7 @@
 				3261360C275CEA5100D73D54 /* HelpersVC1.swift in Sources */,
 				2D1302502760D7B60093D82C /* SetingsVC(update).swift in Sources */,
 				3261360D275CEA5100D73D54 /* HelpersVC2.swift in Sources */,
+				2DA050B82761FDC800A401AC /* NotificationsVC.swift in Sources */,
 				2D130242275F5CAA0093D82C /* HelpersVC3.swift in Sources */,
 				2D130249275FB1D10093D82C /* HelpersSettingsVC.swift in Sources */,
 				2D130255276102470093D82C /* PrivacyPolicyVC.swift in Sources */,
@@ -270,8 +263,7 @@
 				32F70AD9275CE63D00E8302E /* AppDelegate.swift in Sources */,
 				3261360B275CEA5100D73D54 /* SecondVC.swift in Sources */,
 				32F70ADB275CE63D00E8302E /* SceneDelegate.swift in Sources */,
-				2D13024E2760D7680093D82C /* TimerVC.swift in Sources */,
-				2D130245275F90060093D82C /* SettingsVC.swift in Sources */,
+				2D130245275F90060093D82C /* SettingsVC(outdate).swift in Sources */,
 				2D130258276112430093D82C /* TermsOfUseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +413,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79CZRZ64F8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EggCoockingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -448,6 +441,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79CZRZ64F8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EggCoockingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
